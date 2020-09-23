@@ -1,0 +1,31 @@
+---
+# tasks file
+
+    - name: Install dependencies
+      apt: 
+        name: ['python', 'python-setuptools', 'python-dev', 'build-essential', 'python-pip', 'python-mysqldb']  
+        state: present
+   
+    - name: Install MySQL database
+      apt: 
+        name: ['mysql-server', 'mysql-client'] 
+        state: present
+      
+    - name: Start MySQL Service
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Create Application Database
+      mysql_db: 
+        name: django_db 
+        state: present
+
+    - name: Create A Database User
+      mysql_user: 
+        name: db_user
+        password: Passw0rd
+        priv: '*.*:ALL'
+        state: present  
+        host: '%'
