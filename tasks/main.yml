@@ -11,12 +11,14 @@
       apt: 
         name: ['mysql-server', 'mysql-client', 'libmysqlclient-dev'] 
         state: present
+      become: yes  
       
     - name: Start MySQL Service
       service:
         name: mysql
         state: started
         enabled: yes
+      become: yes  
 
     - name: Create Application Database
       mysql_db: 
