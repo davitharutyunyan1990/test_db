@@ -5,6 +5,7 @@
       apt: 
         name: ['python', 'python-setuptools', 'python-dev', 'build-essential', 'python-pip', 'python-mysqldb', 'python-apt']  
         state: present
+      become: yes  
    
     - name: Install MySQL database
       apt: 
@@ -21,6 +22,7 @@
       mysql_db: 
         name: django_db 
         state: present
+      become: yes  
 
     - name: Create A Database User
       mysql_user: 
@@ -29,3 +31,4 @@
         priv: '*.*:ALL'
         state: present  
         host: '%'
+      become: yes
