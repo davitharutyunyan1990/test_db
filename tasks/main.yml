@@ -3,7 +3,7 @@
 
     - name: Install dependencies
       apt: 
-        name: ['python', 'python-setuptools', 'python-dev', 'build-essential', 'python-pip', 'python-mysqldb']  
+        name: ['python', 'python-setuptools', 'python-dev', 'build-essential', 'python-pip', 'python-mysqldb', 'python-apt']  
         state: present
    
     - name: Install MySQL database
